@@ -22,5 +22,21 @@ class DiskSpaceTest(unittest.TestCase):
 
 		self.assertEqual(expected, result)
 
+		# Amount of blocks over Tb
+		blocks = 100000000000000000
+
+		expected = '46566128.73Tb'
+		result = diskspace.bytes_to_readable(blocks)
+
+		self.assertEqual(expected, result)
+
+		# Amount of blocks negative
+		blocks = -1
+
+		expected = '0.00B'
+		result = diskspace.bytes_to_readable(blocks)
+
+		self.assertEqual(expected, result)
+
 if __name__ == "__main__":
 	unittest.main()
