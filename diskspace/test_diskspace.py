@@ -38,5 +38,12 @@ class DiskSpaceTest(unittest.TestCase):
 
 		self.assertEqual(expected, result)
 
+	def test_subprocess_check_output(self):
+		cmd = 'ls'
+		expected = subprocess.check_output(cmd)
+		result = diskspace.subprocess_check_output(cmd)
+
+		self.assertEqual(expected, result)
+
 if __name__ == "__main__":
 	unittest.main()
