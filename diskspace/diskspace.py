@@ -41,10 +41,14 @@ def subprocess_check_output(command):
 
 
 def bytes_to_readable(blocks):
+    if blocks < 0:
+        blocks = 0
+
     byts = blocks * 512
     readable_bytes = byts
+
     count = 0
-    while readable_bytes / 1024:
+    while (readable_bytes / 1024) and (count < 4):
         readable_bytes /= 1024
         count += 1
 
